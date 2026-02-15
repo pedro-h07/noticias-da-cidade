@@ -1,0 +1,277 @@
+/* ==========================================================================
+   RESET E CONFIGURAÇÕES GERAIS
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0; /* Remove espaçamento padrão de todos os elementos */
+}
+
+body {
+    font-family: "Trebuchet MS", Helvetica, sans-serif; /* Define a família de fontes */
+    background: #fff url(../imagens/fundo.png) repeat-x; /* Fundo branco com imagem repetida na horizontal */
+}
+
+/* ==========================================================================
+   ESTRUTURA (LAYOUT GERAL)
+   ========================================================================== */
+#container {
+    width: 750px;  /* Largura fixa do site */
+    margin: 0 auto; /* Centraliza o container na tela (margem automática nas laterais) */
+}
+
+/* ==========================================================================
+   CABEÇALHO (TOPO)
+   ========================================================================== */
+#topo {
+    height: 150px;
+    background: url(../imagens/detalhe-topo.png) no-repeat right top; /* Imagem de detalhe no canto superior direito */
+    padding-top: 25px;
+}
+
+.logo {
+    width: 152px;
+    height: 66px;
+    background: url(../imagens/logo.png) no-repeat center;
+    /* Técnica de Image Replacement: esconde o texto para mostrar apenas a imagem */
+    text-indent: -3000px; 
+}
+
+/* ==========================================================================
+   BARRA DE NAVEGAÇÃO
+   ========================================================================== */
+/* Links gerais do site */
+a:link, a:visited {
+    color: #b10333;
+    padding: 2px;
+}
+
+a:hover {
+    color: #e50040;
+}
+
+/* Reset de listas */
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+#topo ul {
+    margin-top: 30px;
+    background: #b10333; /* Cor de fundo da barra de menu */
+    float: left; /* Alinha a lista à esquerda */
+}
+
+#topo ul li {
+    float: left; /* Coloca os itens do menu um ao lado do outro */
+}
+
+#topo ul a {
+    font-size: 0.9em;
+    display: block;
+    padding: 0.5em 1.5em;
+    line-height: 2.1em;
+    text-decoration: none;
+    color: #fff;
+    background: url(../imagens/divisor.png) no-repeat left center; /* Pequena linha divisória entre itens */
+}
+
+#topo ul .primeiro a {
+    background: none; /* Remove o divisor do primeiro item */
+}
+
+#topo ul a:hover {
+    color: #69001d; /* Muda a cor do texto ao passar o mouse */
+}
+
+/* ESTADO ATIVO DO MENU
+   Usa a classe do body (ex: body.home) combinada com o ID do link (ex: #home)
+   para destacar em qual página o usuário está.
+*/
+body.home #navegacao a#home,
+body.brasil #navegacao a#brasil, 
+body.internacional #navegacao a#internacional,
+body.fotos #navegacao a#fotos {
+    color: #fff;
+    background: #de003e;
+    cursor: text;
+}
+
+/* ==========================================================================
+   SISTEMA DE COLUNAS (LAYOUT)
+   ========================================================================== */
+#conteudo {
+    margin-top: 60px;
+    background: #f5f5f5;
+}
+
+/* Coluna Lateral (Esquerda) */
+#lateral {
+    width: 180px;
+    float: left;
+    /* Margem negativa puxa a lateral para o início da linha visualmente */
+    margin: 0 0 20px -750px; 
+}
+
+/* Coluna Primária (Centro/Destaque) */
+#primario {
+    width: 270px;
+    float: left;
+    margin: 0 0 20px 195px; /* Empurra o conteúdo para dar espaço à lateral */
+}
+
+/* Ajuste para páginas de 2 colunas (ex: Brasil) */
+#duas-colunas #primario {
+    width: 555px; /* Aumenta a largura ocupando o espaço do secundário */
+}
+
+/* Ajuste para páginas de 1 coluna (ex: Fotos) */
+#uma-coluna #primario {
+    width: 750px; /* Ocupa toda a largura */
+    margin: 0 0 20px 0; /* Remove a margem esquerda pois não há lateral */
+}
+
+/* Coluna Secundária (Direita) */
+#secundario {
+    width: 270px;
+    float: left;
+    margin: 0 0 20px 15px;
+}
+
+/* ==========================================================================
+   COMPONENTES E ELEMENTOS INTERNOS
+   ========================================================================== */
+
+/* Caixas de conteúdo (Modules) */
+.caixa {
+    margin: 10px 0;
+    padding: 5px;
+    background: #f3f3f3 url(../imagens/fundo-caixa.png); /* Fundo com textura */
+}
+
+/* Títulos das caixas */
+h2 {
+    font-size: 1em;
+    background: #294c71; /* Azul escuro */
+    color: #fff;
+    padding: 5px;
+}
+
+.caixa-conteudo {
+    background: #fff;
+    padding: 5px;
+    margin-top: 5px;
+}
+
+/* Links do menu lateral */
+#lateral ul a {
+    font-size: 0.9em;
+    padding: 3px;
+    display: block;
+    line-height: 30px;
+    color: #000;
+    text-decoration: none;
+    border-bottom: 1px solid #f3f3f3;
+}
+
+#lateral ul a:hover {
+    background: #f9f9f9 url(../imagens/marcador.png) no-repeat left center;
+    padding-left: 20px; /* Dá espaço para o ícone aparecer */
+    color: #a1a1a1;
+}
+
+/* ==========================================================================
+   FORMULÁRIOS
+   ========================================================================== */
+label {
+    display: block; 
+    cursor: pointer;
+}
+
+input {
+    padding: 5px;
+    width: 125px;
+    font-size: 0.9em;
+    background-color: #fff;
+}
+
+input.submit {
+    width: 80px;
+    color: #fff;
+    background-color: #b10333; /* Botão vermelho */
+    border: 2px solid #870529;
+}
+
+/* ==========================================================================
+   IMAGENS E TIPOGRAFIA AUXILIAR
+   ========================================================================== */
+img.imagem-principal {
+    width: 98%;
+    border: 3px solid #dfdfdf;
+}
+
+h3 {
+    text-transform: uppercase;
+    display: inline;
+    font-size: 0.8em;
+    padding: 3px;
+}
+
+/* Variações de cor para H3 dependendo do contexto */
+.destaque h3 {
+    background: #b10333;
+    color: #fff;
+}
+
+.entrevista h3 {
+    background: #de003e;
+}
+
+/* ==========================================================================
+   LISTA DE NOTÍCIAS (Resumos)
+   ========================================================================== */
+#lista-noticias li {
+    padding: 2px;
+    border-bottom: 1px solid #ccc; 
+    height: 62px; /* Altura fixa para alinhar imagem e texto */
+}
+
+#lista-noticias li a img {
+    float: left;
+    margin: 5px;
+}
+
+#lista-noticias li a {
+    text-decoration: none;
+}
+
+#lista-noticias li a h3 {
+    font-size: 0.8em;
+    padding: 0;
+    color: #3e7ab9;
+}
+
+#lista-noticias li a p {
+    font-size: 0.7em;
+    color: #000;
+}
+
+#lista-noticias li:hover {
+    background: #eee;
+    cursor: pointer;
+}
+
+/* ==========================================================================
+   RODAPÉ
+   ========================================================================== */
+#container-rodape {
+    background: #294c71;
+    padding: 20px;
+    clear: both; /* Garante que o rodapé fique abaixo dos elementos flutuantes */
+}
+
+#rodape {
+    width: 750px;
+    margin: 0 auto;
+    color: #fff;
+}
